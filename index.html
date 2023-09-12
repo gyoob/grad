@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <div>Teachable Machine Image Model</div>
+    <div id="message">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 15V6H15" stroke="#BDBDBD" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 42H6V33" stroke="#BDBDBD" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M42 33V42H33" stroke="#BDBDBD" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M33 6H42V15" stroke="#BDBDBD" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 24H38" stroke="#BDBDBD" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>            
+        <h1>Scan the symbol marker!</h1>
+    </div>
     <!-- <button type="button" onclick="init()">Start</button> -->
 
-    <div id="webcam-container"></div>
+    <div id="webcam-container"><img src="webcam_frame.png" alt=""></div>
     <div id="label-container"></div>
 
-    <div id="page_move">이동</div>
+    <div id="page_move"></div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -20,10 +30,10 @@
     <script type="text/javascript">
         // More API functions here:
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
+    
         // the link to your model provided by Teachable Machine export panel
-        const URL = "https://teachablemachine.withgoogle.com/models/gZNdgCexS/";
-
+        const URL = "https://teachablemachine.withgoogle.com/models/A1wwOWDDP/";
+    
         let model, webcam, labelContainer, maxPredictions;
 
         let link = "#"
@@ -41,24 +51,23 @@
         if (window.navigator.userAgent.indexOf('iPhone') > -1 || window.navigator.userAgent.indexOf('iPad') > -1) {
         isIos = true;
         }
-
+    
         // Load the image model and setup the webcam
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
-
+    
             // load the model and metadata
             // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
             // or files from your local hard drive
             // Note: the pose library adds "tmImage" object to your window (window.tmImage)
             model = await tmImage.load(modelURL, metadataURL);
             maxPredictions = model.getTotalClasses();
-
-            // Convenience function to setup a webcam
+    
             // Convenience function to setup a webcam
             const flip = true; // whether to flip the webcam
-            const width = 640;
-            const height = 640;
+            const width = 500;
+            const height = 500;
             webcam = new tmImage.Webcam(width, height, flip);
             // await webcam.setup(); // request access to the webcam
             await webcam.setup({ facingMode: "environment" });
@@ -83,13 +92,13 @@
                 labelContainer.appendChild(document.createElement("div"));
             }
         }
-
+    
         async function loop() {
             webcam.update(); // update the webcam frame
             await predict();
             window.requestAnimationFrame(loop);
         }
-
+    
         // run the webcam image through the image model
         async function predict() {
             // predict can take in an image, video or canvas html element
@@ -101,21 +110,30 @@
             }
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
 
-            if(prediction[0].probability > 0.5){
+            if(prediction[1].probability > 0.7){
                 console.log('a')
-                $('#page_move').text("북마크로 이동")
+                $('#page_move').show()
+                $('#page_move').fadeIn(500)
+                $('#page_move').text("Design Meterials & Graphics - Week5     〉")
                 link = './bookmark.html'
             }
-            if(prediction[1].probability > 0.5){
+            else if(prediction[2].probability > 0.7){
                 console.log('b')
-                $('#page_move').text("강의자료로 이동")
+                $('#page_move').show()
+                $('#page_move').fadeIn(500)
+                $('#page_move').text("Design Meterials & Graphics - Week5 p.42     〉")
                 link = './note.html'
             }
+            else {
+                console.log('c')
+                $('#page_move').hide()
+                $('#page_move').fadeOut(500)
+            }
         }
-    </script>
+    </script>    
 </body>
 </html>
