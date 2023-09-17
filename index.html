@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <title>scan</title>
 </head>
 <body>
     <div id="message">
@@ -19,7 +21,7 @@
     </div>
     <!-- <button type="button" onclick="init()">Start</button> -->
 
-    <div id="webcam-container"><img src="webcam_frame.png" alt=""></div>
+    <div id="webcam-container"><img src="img/webcam_frame.png" alt=""></div>
     <div id="label-container"></div>
 
     <div id="page_move"></div>
@@ -39,7 +41,7 @@
         let link = "#"
 
         $('#page_move').click(function(){
-            window.location.href = link;
+            window.open(link, "_blank");
         })
 
         $(function(){
@@ -119,14 +121,14 @@
                 $('#page_move').show()
                 $('#page_move').fadeIn(500)
                 $('#page_move').text("Design Meterials & Graphics - Week5     〉")
-                link = './bookmark.html'
+                link = './bookmark1.html'
             }
             else if(prediction[2].probability > 0.7){
                 console.log('b')
                 $('#page_move').show()
                 $('#page_move').fadeIn(500)
                 $('#page_move').text("Design Meterials & Graphics - Week5 p.42     〉")
-                link = './note.html'
+                link = 'https://www.figma.com/proto/IHj9rZXJYn2Bewh9gBdIoN/%EC%A1%B8%EC%A0%84%EA%B9%8C%EC%A7%80%EC%9D%98-%EC%97%AC%EC%A0%95-%F0%9F%AB%A0?page-id=1546%3A2&type=design&node-id=4774-9980&viewport=-2486%2C-3436%2C0.09&t=mgtNT2WEgeeeeviM-8&scaling=scale-down&starting-point-node-id=4774%3A9980&hide-ui=1'
             }
             else {
                 console.log('c')
