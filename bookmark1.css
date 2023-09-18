@@ -53,14 +53,14 @@ html, body {
 }
 
 #left {
-    width: 529px;
+    width: 600px;
 }
 #lec_info {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 #lec_info img {
     width: 120px;
@@ -68,7 +68,7 @@ html, body {
     margin-left: 16px;
 }
 #lec_info > div {
-    width: 359px;
+    width: 440px;
     height: 120px;
     padding: 16px 20px;
     border-radius: 12px;
@@ -113,10 +113,10 @@ h3 {
     font-size: 20px;
     font-weight: 600;
     color: #454545;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 #notice_list {
-    width: 501px;
+    width: 600px;
 }
 #notice_list .notice {
     width: 100%;

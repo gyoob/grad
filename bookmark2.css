@@ -83,11 +83,11 @@ html, body {
 
 #right {
     position: relative;
-    width: 460px;
+    width: 544px;
 }
 #right img {
     position: absolute;
-    top: 194px;
+    top: 176px;
     right: 75px;
     transform: rotate(-16deg);
 }
@@ -113,14 +113,14 @@ html, body {
     border-radius: 12px;
 }
 #right #question .box p {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 160%;
+    line-height: 180%;
     color: #454545;
 }
 #right #answer {
     position: relative;
-    margin-top: 48px;
+    margin-top: 52px;
 }
 #right #answer > p {
     font-size: 14px;
@@ -140,9 +140,9 @@ html, body {
     border-radius: 12px;
 }
 #right #answer .box p {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 160%;
+    line-height: 180%;
     color: #454545;
 }
 
