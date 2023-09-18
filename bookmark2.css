@@ -120,7 +120,7 @@ html, body {
 }
 #right #answer {
     position: relative;
-    margin-top: 52px;
+    margin-top: 50px;
 }
 #right #answer > p {
     font-size: 14px;
