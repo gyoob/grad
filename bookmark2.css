@@ -47,7 +47,7 @@ html, body {
 }
 
 #content {
-    padding: 68px 100px 84px 100px;
+    padding: 68px 100px 92px 100px;
     display: flex;
     justify-content: space-between;
 }
@@ -97,7 +97,7 @@ html, body {
 }
 #right #question > p {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     color: #5585FF;
     margin-bottom: 8px;
 }
@@ -124,7 +124,7 @@ html, body {
 }
 #right #answer > p {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     color: #FFC123;
     margin-bottom: 8px;
 }
