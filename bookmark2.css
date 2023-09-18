@@ -8,9 +8,7 @@
     text-decoration: none;
 }
 html, body {
-    width: 1194px;
-    height: 834px;
-    border: 1px solid #cecece;
+    width: 100vw;
 }
 
 #tab_bar {
@@ -49,7 +47,7 @@ html, body {
 }
 
 #content {
-    padding: 68px 60px 76px 60px;
+    padding: 68px 100px 84px 100px;
     display: flex;
     justify-content: space-between;
 }

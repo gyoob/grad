@@ -8,9 +8,7 @@
     text-decoration: none;
 }
 html, body {
-    width: 1194px;
-    height: 834px;
-    border: 1px solid #cecece;
+    width: 100vw;
 }
 
 #tab_bar {
@@ -49,7 +47,7 @@ html, body {
 }
 
 #content {
-    padding: 32px 60px;
+    padding: 32px 100px;
     display: flex;
     justify-content: space-between;
 }
@@ -115,7 +113,7 @@ h3 {
     font-size: 20px;
     font-weight: 600;
     color: #454545;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 #notice_list {
     width: 501px;
